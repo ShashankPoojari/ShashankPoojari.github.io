@@ -3,5 +3,15 @@
    <body>
      <h1>Hello</h1>
      <p>trying something</p>
+     <p>Visitor Count: <span id="visitor-count"></span></p>
+     <script>
+       if (localStorage.getItem("visitorCount")) {
+         let count = parseInt(localStorage.getItem("visitorCount"));
+         localStorage.setItem("visitorCount", count + 1);
+       } else {
+         localStorage.setItem("visitorCount", 1);
+       }
+       document.getElementById("visitor-count").textContent = localStorage.getItem("visitorCount");
+     </script>
    </body>
    </html>
