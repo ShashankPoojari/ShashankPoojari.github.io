@@ -1,19 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  body {
-    display: flex;
-    flex-direction: column; /* Stacks children vertically */
-    justify-content: center; /* Centers content vertically */
-    align-items: center; /* Centers content horizontally */
-    min-height: 100vh; /* Ensures the body takes at least the full viewport height */
-    margin: 0; /* Removes default body margin */
-  }
-</style>
+  <title>My Interesting Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to top right, #e0f7fa, #80deea); /* Light blue gradient */
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      text-align: center; /* Center text globally */
+      padding: 20px; /* Add some padding around the edges */
+      box-sizing: border-box; /* Include padding in element's total width and height */
+    }
+
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+      max-width: 700px;
+      width: 90%; /* Responsive width */
+      opacity: 0; /* Start invisible for animation */
+      transform: translateY(20px); /* Start slightly below for animation */
+      animation: fadeInSlideUp 1s forwards ease-out; /* Apply animation */
+    }
+
+    h1 {
+      font-family: 'Merriweather', serif;
+      color: #004d40; /* Dark teal */
+      font-size: 3em; /* Larger heading */
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .interesting-button {
+      background-color: #00796b; /* Teal button */
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-decoration: none; /* For link styled as button */
+      display: inline-block; /* Allows padding and margin */
+    }
+
+    .interesting-button:hover {
+      background-color: #004d40; /* Darker teal on hover */
+      transform: translateY(-2px); /* Slight lift effect */
+    }
+
+    /* Keyframe animation for fade-in and slide-up */
+    @keyframes fadeInSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-     <h1>Hello</h1>
-     <p>trying something</p>
+
+  <div class="container">
+    <h1>Hello World! 👋</h1>
+    <p>
+      Welcome to my little corner of the internet! I'm experimenting with some new CSS and JavaScript to make this page a bit more dynamic and appealing. It's exciting to see what you can create with just a few lines of code.
+    </p>
+    <p id="dynamicMessage">Click the button below to reveal a secret!</p>
+    <button class="interesting-button" onclick="revealSecret()">Discover More</button>
+  </div>
+
+  <script>
+    function revealSecret() {
+      const messageElement = document.getElementById('dynamicMessage');
+      if (messageElement.textContent === 'Click the button below to reveal a secret!') {
+        messageElement.textContent = '🎉 You found it! Keep exploring and building awesome things! 🎉';
+        messageElement.style.color = '#00796b'; /* Change text color */
+        messageElement.style.fontWeight = 'bold';
+      } else {
+        messageElement.textContent = 'Click the button below to reveal a secret!';
+        messageElement.style.color = '#333';
+        messageElement.style.fontWeight = 'normal';
+      }
+    }
+  </script>
+
 </body>
 </html>
